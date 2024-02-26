@@ -29,9 +29,28 @@ function App() {
     setCounter(0);
   };
 
+  const [showRestartMessage, setShowRestartMessage] = useState(false);
+
+  const handleRestartClick = () => {
+    resetCounter();
+    setShowRestartMessage(true);
+    setTimeout(() => {
+      setShowRestartMessage(false);
+    }, 3000); // Mostrar el mensaje por 3 segundos
+  };
+
+  const handleGoToHomeClick = () => {
+    setIsStarted(false);
+    setCounter(0);
+  };
+
   return (
     <div className="App">
-      <Header onStartClick={handleStartClick} />
+      <Header
+        onStartClick={handleStartClick}
+        onRestartClick={handleRestartClick}
+        onGoToHomeClick={handleGoToHomeClick}
+      />
       {isStarted && (
         <>
           <ButtonComponent label="+1" onClick={() => incrementCounter(1)} />
@@ -39,8 +58,11 @@ function App() {
           <Counter counter={counter} />
           <ButtonComponent label="-1" onClick={() => decrementCounter(1)} />
           <ButtonComponent label="-5" onClick={() => decrementCounter(5)} />
-          <ButtonComponent label="Reiniciar" onClick={resetCounter} />
+          <ButtonComponent label="Reiniciar" onClick={handleRestartClick} />
         </>
+      )}
+      {showRestartMessage && (
+        <div className="restart-message">Reinicio exitoso</div>
       )}
       <Footer />
     </div>
