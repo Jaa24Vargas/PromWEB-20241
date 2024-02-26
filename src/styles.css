@@ -1,0 +1,13 @@
+/* styles.css */
+.title-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gothic', sans-serif;
+    font-size: 36px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
