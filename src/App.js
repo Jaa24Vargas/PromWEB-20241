@@ -1,9 +1,11 @@
+// App.js
 import React, { useState } from 'react';
-import './App.css';
-import Header from './Header';
-import Footer from './Footer';
-import Counter from './CounterComponent';
+import './App.css'; // Estilos globales de la aplicación
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import Counter from './Components/CounterComponent';
 import ButtonComponent from './ButtonComponent';
+import './styles.css'; // Estilos específicos de la aplicación
 
 function App() {
   const [isStarted, setIsStarted] = useState(false);
@@ -12,9 +14,9 @@ function App() {
     setIsStarted(true);
   };
 
-  const incrementCounter = () => {
+  function incrementCounter() {
     // Lógica para incrementar el contador
-  };
+  }
 
   const decrementCounter = () => {
     // Lógica para decrementar el contador
