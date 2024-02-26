@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import './App.css'; // Estilos globales de la aplicación
 import Header from './Components/Header';
@@ -9,21 +8,25 @@ import './styles.css'; // Estilos específicos de la aplicación
 
 function App() {
   const [isStarted, setIsStarted] = useState(false);
-  
-  const handleStartClick = () => {
-    setIsStarted(true);
-  };
+  const [counter, setCounter] = useState(0); // Estado para el contador
 
-  function incrementCounter() {
-    // Lógica para incrementar el contador
+  function handleStartClick() {
+    setIsStarted(true);
   }
 
-  const decrementCounter = () => {
-    // Lógica para decrementar el contador
-  };
+  function incrementCounter(value) {
+    // Incrementar el contador según el valor pasado
+    setCounter(prevCounter => prevCounter + value);
+  }
+
+  function decrementCounter(value) {
+    // Decrementar el contador según el valor pasado
+    setCounter(prevCounter => prevCounter - value);
+  }
 
   const resetCounter = () => {
-    // Lógica para reiniciar el contador
+    // Reiniciar el contador
+    setCounter(0);
   };
 
   return (
@@ -31,9 +34,11 @@ function App() {
       <Header onStartClick={handleStartClick} />
       {isStarted && (
         <>
-          <ButtonComponent label="Incrementar" onClick={incrementCounter} />
-          <Counter />
-          <ButtonComponent label="Decrementar" onClick={decrementCounter} />
+          <ButtonComponent label="+1" onClick={() => incrementCounter(1)} />
+          <ButtonComponent label="+5" onClick={() => incrementCounter(5)} />
+          <Counter counter={counter} />
+          <ButtonComponent label="-1" onClick={() => decrementCounter(1)} />
+          <ButtonComponent label="-5" onClick={() => decrementCounter(5)} />
           <ButtonComponent label="Reiniciar" onClick={resetCounter} />
         </>
       )}

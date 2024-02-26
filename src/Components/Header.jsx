@@ -1,6 +1,7 @@
 // Header.js
 import React from 'react';
-import './styles.css';
+import '../styles.css';
+
 
 const Header = ({ onStartClick }) => {
   return (
