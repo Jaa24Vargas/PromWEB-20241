@@ -3,29 +3,35 @@ import React, { useState } from 'react';
 import '../styles.css';
 
 const Header = ({ onStartClick }) => {
-  const [showCounterButtons, setShowCounterButtons] = useState(false);
+  const [restartMessageVisible, setRestartMessageVisible] = useState(false);
 
-  const handleStartClick = () => {
-    onStartClick();
-    setShowCounterButtons(true); // Mostrar los botones de contador al hacer clic en "Counter React"
+  const handleRestartClick = () => {
+    setRestartMessageVisible(true);
+    setTimeout(() => {
+      setRestartMessageVisible(false);
+    }, 3000);
   };
 
   return (
     <header className="container">
       <div className="title-container">
-        <button className="title-button" onClick={handleStartClick}>
+        <button
+          className="title-button"
+          onClick={onStartClick}
+        >
           Counter React
         </button>
       </div>
-      {showCounterButtons && ( // Mostrar los botones del contador solo si showCounterButtons es true
-        <div className="counter-buttons">
-          <button className="increment-button" onClick={() => console.log('+')}>+</button>
-          <button className="decrement-button" onClick={() => console.log('-')}>-</button>
-          <button className="reset-button" onClick={() => console.log('Reiniciar')}>Reiniciar</button>
-        </div>
-      )}
+      {restartMessageVisible && <p className="message">Reinicio exitoso</p>}
+      <button
+        className="hub-button"
+        onClick={handleRestartClick}
+      >
+        Hub
+      </button>
     </header>
   );
 };
 
 export default Header;
+
