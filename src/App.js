@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import './App.css'; // Estilos globales de la aplicación
 import Header from './Components/Header';
@@ -10,59 +11,61 @@ function App() {
   const [isStarted, setIsStarted] = useState(false);
   const [counter, setCounter] = useState(0); // Estado para el contador
 
-  function handleStartClick() {
+  const handleStartClick = () => {
     setIsStarted(true);
-  }
+  };
 
-  function incrementCounter(value) {
-    // Incrementar el contador según el valor pasado
-    setCounter(prevCounter => prevCounter + value);
-  }
+  const incrementCounter = () => {
+    setCounter(prevCounter => prevCounter + 1);
+  };
 
-  function decrementCounter(value) {
-    // Decrementar el contador según el valor pasado
-    setCounter(prevCounter => prevCounter - value);
-  }
+  const decrementCounter = () => {
+    setCounter(prevCounter => prevCounter - 1);
+  };
 
   const resetCounter = () => {
-    // Reiniciar el contador
     setCounter(0);
   };
 
-  const [showRestartMessage, setShowRestartMessage] = useState(false);
+  const randomizeCircle = () => {
+    // Generar valores aleatorios para tamaño, posición y color del círculo
+    const size = Math.floor(Math.random() * 100) + 50; // Tamaño entre 50 y 150
+    const left = Math.floor(Math.random() * 700); // Posición horizontal entre 0 y 700
+    const top = Math.floor(Math.random() * 700); // Posición vertical entre 0 y 700
+    const color = `hsl(${Math.floor(Math.random() * 360)}, 50%, 50%)`; // Color aleatorio
 
-  const handleRestartClick = () => {
-    resetCounter();
-    setShowRestartMessage(true);
+    // Crear el círculo dentro del contenedor
+    const container = document.querySelector('.container');
+    const circle = document.createElement('div');
+    circle.style.width = `${size}px`;
+    circle.style.height = `${size}px`;
+    circle.style.backgroundColor = color;
+    circle.style.borderRadius = '50%';
+    circle.style.position = 'absolute';
+    circle.style.left = `${left}px`;
+    circle.style.top = `${top}px`;
+
+    // Agregar el círculo al contenedor
+    container.appendChild(circle);
+
+    // Desaparecer el círculo después de 1 segundo
     setTimeout(() => {
-      setShowRestartMessage(false);
-    }, 3000); // Mostrar el mensaje por 3 segundos
-  };
-
-  const handleGoToHomeClick = () => {
-    setIsStarted(false);
-    setCounter(0);
+      container.removeChild(circle);
+    }, 1000);
   };
 
   return (
-    <div className="App">
-      <Header
-        onStartClick={handleStartClick}
-        onRestartClick={handleRestartClick}
-        onGoToHomeClick={handleGoToHomeClick}
-      />
+    <div className={`App${isStarted ? ' started' : ''}`}>
+      <Header onStartClick={handleStartClick} />
       {isStarted && (
         <>
-          <ButtonComponent label="+1" onClick={() => incrementCounter(1)} />
-          <ButtonComponent label="+5" onClick={() => incrementCounter(5)} />
           <Counter counter={counter} />
-          <ButtonComponent label="-1" onClick={() => decrementCounter(1)} />
-          <ButtonComponent label="-5" onClick={() => decrementCounter(5)} />
-          <ButtonComponent label="Reiniciar" onClick={handleRestartClick} />
+          <div className="counter-buttons">
+                    <ButtonComponent label="+" onClick={() => { incrementCounter(); randomizeCircle(); }} />
+                    <ButtonComponent label="-" onClick={decrementCounter} />
+                    <ButtonComponent label="Reiniciar" onClick={resetCounter} />
+            </div>
         </>
-      )}
-      {showRestartMessage && (
-        <div className="restart-message">Reinicio exitoso</div>
       )}
       <Footer />
     </div>

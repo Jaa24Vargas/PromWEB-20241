@@ -1,13 +1,57 @@
 /* styles.css */
+
+/* Mantenemos los estilos para el contenedor */
+.container {
+  width: 800px;
+  height: 800px;
+  position: relative;
+  margin: 0 auto;
+  border: 2px solid black;
+  background: linear-gradient(135deg, #FDFD96, #C4A2F9);
+}
+
+/* Modificamos los estilos para el botón Counter React */
+.title-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .title-button {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Gothic', sans-serif;
-    font-size: 36px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  
+  font-family: 'Gothic', sans-serif;
+  font-size: 36px;
+  background-color: yellow; /* Cambia a color amarillo */
+  border: none;
+  cursor: pointer;
+}
+
+/* Agregamos estilos para los botones de contador */
+.counter-buttons {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px; /* Ajusta la posición vertical */
+  left: 50%;
+  transform: translateX(-50%); /* Centra horizontalmente */
+}
+
+/* Estilo para los botones dentro del lienzo */
+.container .increment-button,
+.container .decrement-button,
+.container .reset-button {
+  background-color: violet; /* Cambiamos a color violeta */
+}
+
+/* Estilos para los botones dentro del lienzo */
+.increment-button,
+.decrement-button,
+.reset-button {
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+

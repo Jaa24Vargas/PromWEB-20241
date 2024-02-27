@@ -1,34 +1,29 @@
+// Header.jsx
 import React, { useState } from 'react';
 import '../styles.css';
 
-const Header = ({ onStartClick, onRestartClick, onGoToHomeClick }) => {
-  const [restartMessageVisible, setRestartMessageVisible] = useState(false);
+const Header = ({ onStartClick }) => {
+  const [showCounterButtons, setShowCounterButtons] = useState(false);
 
-  const handleRestartClick = () => {
-    setRestartMessageVisible(true);
-    setTimeout(() => {
-      setRestartMessageVisible(false);
-    }, 3000);
-    onRestartClick();
+  const handleStartClick = () => {
+    onStartClick();
+    setShowCounterButtons(true); // Mostrar los botones de contador al hacer clic en "Counter React"
   };
 
   return (
     <header className="container">
-      <button
-        className="title-button"
-        style={{ left: '400px', top: '129px', width: '730px', height: '200px' }}
-        onClick={onStartClick} // Llamar a la función onStartClick al hacer clic en el botón
-      >
-        Counter React
-      </button>
-      {restartMessageVisible && <p style={{ textAlign: 'center' }}>Reinicio exitoso</p>}
-      <button
-        className="hub-button"
-        style={{ position: 'absolute', bottom: '10px', left: '10px' }}
-        onClick={handleRestartClick}
-      >
-        Hub
-      </button>
+      <div className="title-container">
+        <button className="title-button" onClick={handleStartClick}>
+          Counter React
+        </button>
+      </div>
+      {showCounterButtons && ( // Mostrar los botones del contador solo si showCounterButtons es true
+        <div className="counter-buttons">
+          <button className="increment-button" onClick={() => console.log('+')}>+</button>
+          <button className="decrement-button" onClick={() => console.log('-')}>-</button>
+          <button className="reset-button" onClick={() => console.log('Reiniciar')}>Reiniciar</button>
+        </div>
+      )}
     </header>
   );
 };
