@@ -11,10 +11,11 @@ function Lista({ tasks, setTasks }) {
 
   return (
     <div className="lista">
+      <h2>Tareas Agregadas</h2>
       {/* Mapeamos las tareas y renderizamos cada una */}
       {tasks.map((task, index) => (
         <div className="tarea" key={index}>
-          <input
+          <input className='input'
             type="checkbox"
             checked={task.completed}
             onChange={() => handleTaskCompletion(index)}

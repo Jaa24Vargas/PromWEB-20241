@@ -1,6 +1,21 @@
 /* App.css */
 .App {
   text-align: center;
+  width: 1300px;
+  margin: auto;
+  margin-top: 200px;
+}
+
+
+/* Estilos para el botón de agregar en dispositivos móviles */
+@media (max-width: 768px) {
+  
+  .App {
+    text-align: center;
+    width: 900px;
+    margin: auto;
+    margin-top: 200px;
+  }
 }
 
 .App-logo {
@@ -38,7 +53,7 @@
 
 /* Estilos para la caja de texto */
 .input-tarea {
-  width: 90%; /* Hacemos que la caja de texto ocupe todo el ancho disponible */
+  width: 85%; /* Hacemos que la caja de texto ocupe todo el ancho disponible */
   padding: 12px 20px; /* Añadimos espacio interno */
   font-size: 1rem; /* Tamaño de fuente */
   border: 2px solid #8a2be2; /* Borde morado */
@@ -58,6 +73,8 @@
 /* Estilos para los filtros */
 .filtros {
   margin-bottom: 20px;
+  font-size: large;
+
 }
 
 .filtros label {
@@ -70,36 +87,58 @@
 
 /* Estilos para la lista de tareas */
 .lista {
+  padding: 10px 50px 10px 50px;
+  display: flex;
   margin-bottom: 20px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.lista h2{
+  margin-right: 20px;
+}
+
+.input[type="checkbox"] {
+  transform: scale(1.5); /* Cambia el tamaño del checkbox al 150% */
+}
+
+.tarea span {
+  margin-left: 15px;
 }
 
 .tarea {
   margin-bottom: 10px;
+  font-size: 22px;
+
 }
 
 /* Estilos para el botón de agregar */
 .btn-agregar {
-  background-color: #00ff00; /* Color verde lima */
+  background-color: #00cc00; /* Color verde lima */
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px; /* Bordes redondeados */
   cursor: pointer;
+  margin-left: 15px;
+  font-size: 16px;
+}
+
+/* Estilos para el botón de agregar */
+.btn-desactivado {
+  background-color: #8a8a8a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer;
+  margin-left: 15px;
+  font-size: 16px;
+
 }
 
 .btn-agregar:hover {
   background-color: #00cc00; /* Color verde lima más oscuro al pasar el ratón */
-}
-
-/* Estilos para el botón de agregar en dispositivos móviles */
-@media (max-width: 768px) {
-  .btn-agregar {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    border-radius: 50%; /* Convertimos el botón en circular */
-    padding: 15px; /* Aumentamos el tamaño del botón */
-  }
 }
 
 /* Estilos para el footer */
@@ -134,4 +173,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.added-tasks{
+  margin-left: 50px
 }
