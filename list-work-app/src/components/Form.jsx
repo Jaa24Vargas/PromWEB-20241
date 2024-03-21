@@ -22,20 +22,22 @@ function Formulario({ onAddTask }) {
   };
 
   return (
-    <div className="formulario">
-      <h2>Agregar Tarea</h2>
-      <input
-        type="text"
-        value={task}
-        onChange={handleTaskChange}
-        placeholder="Escribe tu tarea..."
-        className="input-tarea"
-      />
-      {/* Usamos el estado isTaskValid para habilitar o deshabilitar el botón y establecer el color */}
-      <button className={`btn ${!isTaskValid ? 'btn-desactivado' : 'btn-agregar'}`} disabled={!isTaskValid} onClick={handleSubmit}>
-        Agregar
-      </button>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className="formulario">
+        <h2>Agregar Tarea</h2>
+        <input
+          type="text"
+          value={task}
+          onChange={handleTaskChange}
+          placeholder="Escribe tu tarea..."
+          className="input-tarea"
+        />
+        {/* Usamos el estado isTaskValid para habilitar o deshabilitar el botón y establecer el color */}
+        <button className={`btn ${!isTaskValid ? 'btn-desactivado' : 'btn-agregar'}`} disabled={!isTaskValid}>
+          Agregar
+        </button>
+      </div>
+    </form>
   );
 }
 
