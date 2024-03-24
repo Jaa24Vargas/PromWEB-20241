@@ -12,6 +12,11 @@ function App() {
     setTasks([...tasks, { text: newTask, completed: false }]);
   };
 
+  const handleDeleteCompletedTasks = () => {
+    const updatedTasks = tasks.filter(task => !task.completed);
+    setTasks(updatedTasks);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,10 +24,12 @@ function App() {
       </header>
       {/* Renderizamos nuestros componentes */}
       <Formulario onAddTask={handleAddTask} />
-      <Filtros />
+      {/* Pasamos las tareas al componente Filtros */}
+      <Filtros tasks={tasks} />
       {/* Pasamos las tareas al componente Lista */}
       <Lista tasks={tasks} setTasks={setTasks} />
-      <Footer />
+      {/* Pasamos la función para borrar tareas completadas al componente Footer */}
+      <Footer borrarTareasCompletadas={handleDeleteCompletedTasks} />
     </div>
   );
 }

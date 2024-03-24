@@ -178,3 +178,11 @@
 .added-tasks{
   margin-left: 50px
 }
+
+div.tareas-filtradas{
+  padding: 10px 50px 10px 50px;
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-start;
+  flex-direction: column;
+}

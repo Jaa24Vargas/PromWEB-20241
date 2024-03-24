@@ -8,7 +8,8 @@ function Lista({ tasks, setTasks }) {
     updatedTasks[index].completed = !updatedTasks[index].completed;
     setTasks(updatedTasks);
   };
-
+    console.log("Tareas actuales:", tasks);
+    
   return (
     <div className="lista">
       <h2>Tareas Agregadas</h2>
@@ -21,8 +22,8 @@ function Lista({ tasks, setTasks }) {
             onChange={() => handleTaskCompletion(index)}
           />
           {/* Establecemos el estilo del fondo de la tarea según su estado */}
-          <span style={{ backgroundColor: task.completed ? 'rgba(128, 0, 128, 0.5)' : 'transparent' }}>
-            {task.text}
+          <span style={{}}>
+              {task.text}
           </span>
         </div>
       ))}

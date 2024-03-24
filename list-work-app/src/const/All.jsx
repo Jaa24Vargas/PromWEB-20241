@@ -1,10 +1,8 @@
-// const/All.jsx
 import React from 'react';
 
-function All() {
+function All({ tasks }) {
   return (
     <div>
-      <p>All Tasks</p>
     </div>
   );
 }

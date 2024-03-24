@@ -1,11 +1,10 @@
-// Footer.jsx
 import React from 'react';
 
-function Footer() {
+function Footer({ borrarTareasCompletadas }) {
   return (
     <div className="footer">
-      <div className="data">Datos</div>
-      <button>Button</button>
+      {/* Agregamos un botón para borrar tareas completadas */}
+      <button onClick={borrarTareasCompletadas}>Borrar Completadas</button>
     </div>
   );
 }
