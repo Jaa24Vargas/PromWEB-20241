@@ -1,0 +1,207 @@
+/* App.css */
+.App {
+  text-align: center;
+  width: 1300px;
+  margin: auto;
+  margin-top: 200px;
+}
+
+
+/* Estilos para el botón de agregar en dispositivos móviles */
+@media (max-width: 768px) {
+  
+  .App {
+    text-align: center;
+    width: 900px;
+    margin: auto;
+    margin-top: 200px;
+  }
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #9620f7; /* Cambiamos el color de fondo */
+  min-height: 10vh; /* Ajustamos la altura mínima */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-family: 'Gothic A1', sans-serif; /* Aplicamos una fuente gótica */
+  color: white;
+}
+
+/* Estilos para el formulario */
+.formulario {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 2px solid #8a2be2; /* Color del borde morado */
+  border-radius: 8px;
+  background-color: #e9c5f8; /* Color de fondo gris claro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilos para la caja de texto */
+.input-tarea {
+  width: 85%; /* Hacemos que la caja de texto ocupe todo el ancho disponible */
+  padding: 12px 20px; /* Añadimos espacio interno */
+  font-size: 1rem; /* Tamaño de fuente */
+  border: 2px solid #8a2be2; /* Borde morado */
+  border-radius: 8px; /* Bordes redondeados */
+  margin-bottom: 20px; /* Espacio inferior */
+}
+
+.input-tarea::placeholder {
+  color: #8a8a8a; /* Color del texto de marcador de posición */
+}
+
+.input-tarea:focus {
+  outline: none; /* Quitamos el contorno al enfocar */
+  border-color: #6a1a9a; /* Cambiamos el color del borde al enfocar */
+}
+
+/* Estilos para los filtros */
+.filtros {
+  margin-bottom: 20px;
+  font-size: large;
+
+}
+
+.filtros label {
+  margin-right: 20px;
+}
+
+.filtros input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Estilos para la lista de tareas */
+.lista {
+  padding: 10px 50px 10px 50px;
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.lista h2{
+  margin-right: 20px;
+}
+
+.input[type="checkbox"] {
+  transform: scale(1.5); /* Cambia el tamaño del checkbox al 150% */
+}
+
+.tarea span {
+  margin-left: 15px;
+}
+
+.tarea {
+  margin-bottom: 10px;
+  font-size: 22px;
+
+}
+
+/* Estilos para el botón de agregar */
+.btn-agregar {
+  background-color: #00cc00; /* Color verde lima */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer;
+  margin-left: 15px;
+  font-size: 16px;
+}
+
+/* Estilos para el botón de agregar */
+.btn-desactivado {
+  background-color: #8a8a8a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer;
+  margin-left: 15px;
+  font-size: 16px;
+
+}
+
+.btn-agregar:hover {
+  background-color: #00cc00; /* Color verde lima más oscuro al pasar el ratón */
+}
+
+/* Estilos para el footer */
+.footer {
+  padding: 10px;
+  border-top: 1px solid #8a2be2; /* Línea superior morada */
+  background-color: #e7c2ff; /* Color de fondo gris claro */
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.footer button {
+  background-color: #8a2be2; /* Color de fondo morado */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.footer button:hover {
+  background-color: #6a1a9a; /* Color de fondo morado oscuro al pasar el ratón */
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.mensaje-exitoTask {
+  background-color: #dff0d8; /* Verde claro */
+  color: #3c763d; /* Verde oscuro */
+  padding: 10px;
+  border: 2px solid #3c763d; /* Borde verde oscuro */
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.confirmation-message {
+  background-color: #d4edda; /* Verde claro */
+  color: #60ff85; /* Verde oscuro */
+  padding: 10px;
+  border-radius: 5px; /* Bordes redondeados */
+  margin: 10px;
+  transition: opacity 0.5s; /* Transición para suavidad */
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.added-tasks{
+  margin-left: 50px
+}
+
+div.tareas-filtradas{
+  padding: 10px 50px 10px 50px;
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-start;
+  flex-direction: column;
+}
